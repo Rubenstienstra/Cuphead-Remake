@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa024db5696c5f4fb047a28610c3ee3, type: 3}
   m_Name: WeaponsSelection
   m_EditorClassIdentifier: 
-  crWeapon: {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
+  currentWeapon: {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
   totalWeapons:
   - {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
