@@ -351,6 +351,8 @@ MonoBehaviour:
   hp: 3
   crWeapon: {fileID: 0}
   spawnLocation: {x: 0, y: 0, z: 0}
+  moving: {x: 0, y: 0, z: 0}
+  allowMoving: 0
 --- !u!136 &661937282
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -442,8 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 205cdb6a8676a4647a342e2dc0594f79, type: 3}
-  m_NotificationBehavior: 2
+  m_Actions: {fileID: -944628639613478452, guid: f6105e3c86c877a41b4bdeb1c99caa18, type: 3}
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:

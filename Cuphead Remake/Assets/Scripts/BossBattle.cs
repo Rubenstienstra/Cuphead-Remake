@@ -16,6 +16,7 @@ public class BossBattle : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter(Collision col)
     {
         if(col.collider.gameObject.tag == "Weapon Projectile")

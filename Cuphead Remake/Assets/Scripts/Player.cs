@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public GameObject crWeapon;
     public Vector3 spawnLocation;
 
+    public Vector3 moving;
+    public bool allowMoving;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +25,17 @@ public class Player : MonoBehaviour
     {
         
     }
-    public void Move(InputAction.CallbackContext context)
+    public void OnMoving(InputValue value)
     {
-        SpawnProjectile();
+        moving.z = value.Get<float>();
+        if (moving.z == 1)
+        {
+            allowMoving = true;
+        }
+        else
+        {
+            allowMoving = false;
+        }
     }
     public void SpawnProjectile()
     {
