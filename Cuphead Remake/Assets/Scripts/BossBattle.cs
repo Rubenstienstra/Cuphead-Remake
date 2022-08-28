@@ -24,5 +24,13 @@ public class BossBattle : MonoBehaviour
             Destroy(col.collider.gameObject);
         }
     }
-    
+    private void OnTriggerEnter(Collider trig)
+    {
+        //if (gameObject == "Weapon Projectile")
+        //{
+        //    hp--;
+        //    Destroy(col.collider.gameObject);
+        //}
+    }
+
 }

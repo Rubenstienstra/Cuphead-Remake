@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     }
     public void SpawnProjectile()
     {
+        spawnLocation = this.gameObject.transform.position;
         //crWeapon = GameObject.Instantiate(crWeapon as GameObject);
         if(movingRight || movingLeft == false)
         {

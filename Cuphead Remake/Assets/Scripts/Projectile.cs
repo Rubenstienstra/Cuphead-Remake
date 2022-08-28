@@ -23,6 +23,10 @@ public class Projectile : MonoBehaviour
 
         }
     }
+    public void Update()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
 
     IEnumerator Lifespan()
     {
