@@ -6,24 +6,64 @@
             "id": "860fa93e-bbd7-4be4-9d07-8ca2c9e03f88",
             "actions": [
                 {
-                    "name": "Moving",
+                    "name": "MovingRight",
                     "type": "Value",
-                    "id": "7a6eb12f-b778-42c3-bf59-7a2e5b1b46a7",
+                    "id": "43aefbe3-7371-4e24-9fce-8d28258377a3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MovingLeft",
+                    "type": "Value",
+                    "id": "0715e022-9666-431d-a328-6c085cff313c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Shooting",
+                    "type": "Button",
+                    "id": "928edb6f-4baa-4a24-9038-0be9cf35fcc5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
+                    "id": "4d504ff9-d7fa-4b52-a5f9-f73130fde7bd",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "819c654e-37a0-4d7b-b12e-7cfcbb7f7330",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Hold(duration=0.01)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovingLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "666677bd-35cb-401d-b259-0b2fd4eb1b78",
                     "path": "<Keyboard>/d",
                     "interactions": "Hold(duration=0.01)",
                     "processors": "",
                     "groups": "",
-                    "action": "Moving",
+                    "action": "MovingRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

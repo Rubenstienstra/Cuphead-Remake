@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public ScriptableGameInfo gameInfo;
+
     public float lifeDuration;
     public float damage;
     public float speed;
@@ -12,12 +14,14 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         StartCoroutine(Lifespan());
-    }
+        if(gameInfo.playerLeft == true)
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+        else
+        {
+
+        }
     }
 
     IEnumerator Lifespan()

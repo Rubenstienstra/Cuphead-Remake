@@ -347,12 +347,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134c886c936516549a3f85b6f5e67c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StotalWeapons: {fileID: 11400000, guid: b076e91223a5e4e489e37657d8ef6f51, type: 2}
+  gameInfo: {fileID: 0}
+  totalWeapons: {fileID: 0}
   hp: 3
-  crWeapon: {fileID: 0}
+  crWeapon: {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
   spawnLocation: {x: 0, y: 0, z: 0}
-  moving: {x: 0, y: 0, z: 0}
-  allowMoving: 0
+  movingLR: {x: 0, y: 0, z: 0}
+  movingRight: 0
+  movingLeft: 0
 --- !u!136 &661937282
 CapsuleCollider:
   m_ObjectHideFlags: 0

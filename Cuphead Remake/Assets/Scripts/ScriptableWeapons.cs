@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenuAttribute(fileName = "WeaponsSelection", menuName = "ScriptableObjects/WeaponsSelection", order = 1)]
+[CreateAssetMenuAttribute(fileName = "WeaponsSelection", menuName = "ScriptableObject/WeaponsSelection")]
 public class ScriptableWeapons : ScriptableObject
 {
     public GameObject currentWeapon;
