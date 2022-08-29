@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4480349941189641740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.37, y: 1.87, z: 0.00093212724}
-  m_LocalScale: {x: 0.59695, y: 0.05221095, z: 0.43288}
+  m_LocalScale: {x: 0.09821249, y: 0.05221095, z: 0.35452005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,9 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInfo: {fileID: 11400000, guid: e206bec87e16d54478fcbed54ab49ab6, type: 2}
-  lifeDuration: 5
+  lifeDuration: 2
   damage: 1
-  speed: 3
+  speed: 10
+  startCheckLR: 0
 --- !u!54 &9115112040172886964
 Rigidbody:
   m_ObjectHideFlags: 0

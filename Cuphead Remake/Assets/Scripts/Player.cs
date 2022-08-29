@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public bool movingRight;
     public bool movingLeft;
 
-    public float inputTimer;
+    public float allowShoot;
     public float shootDelay;
 
     // Start is called before the first frame update
@@ -70,21 +70,24 @@ public class Player : MonoBehaviour
     }
     public void OnShooting(InputValue value)
     {
-        inputTimer = value.Get<float>();
-        if(value.Get<float>() > 0.9)
+        allowShoot = value.Get<float>();
+        if(value.Get<float>() >= 0.9)
         {
             StartCoroutine(AutoShooting());
         }
-        else if (value.Get<float>() < 0.1)
-        {
-            //StopCoroutine(AutoShooting());
-        }
+        //else if (value.Get<float>() < 0.1)
+        //{
+        //    StopCoroutine(AutoShooting());
+        //}
     }
     IEnumerator AutoShooting()
     {
        yield return new WaitForSeconds(shootDelay);
-       SpawnProjectile();
-       yield return new WaitForSeconds(0);
-        AutoShooting();
+        if(allowShoot >= 0.9)
+        {
+            SpawnProjectile();
+            yield return new WaitForSeconds(0);
+            StartCoroutine(AutoShooting());
+        }
     }
 }
