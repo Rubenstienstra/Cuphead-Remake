@@ -10,22 +10,28 @@ public class Projectile : MonoBehaviour
     public float damage;
     public float speed;
 
+    public bool startCheckLR;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Lifespan());
         if(gameInfo.playerLeft == true)
         {
-
-        }
-        else
-        {
-
+            startCheckLR = true;
         }
     }
     public void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        if(startCheckLR == true)
+        {
+            transform.Translate(Vector3.back * Time.deltaTime * speed);
+        }
+        else
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        }
+        
     }
 
     IEnumerator Lifespan()

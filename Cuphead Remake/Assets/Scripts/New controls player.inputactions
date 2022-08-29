@@ -25,12 +25,12 @@
                 },
                 {
                     "name": "Shooting",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "928edb6f-4baa-4a24-9038-0be9cf35fcc5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -38,7 +38,7 @@
                     "name": "",
                     "id": "4d504ff9-d7fa-4b52-a5f9-f73130fde7bd",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Shooting",

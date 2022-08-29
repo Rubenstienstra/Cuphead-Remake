@@ -328,9 +328,10 @@ GameObject:
   - component: {fileID: 661937282}
   - component: {fileID: 661937281}
   - component: {fileID: 661937286}
+  - component: {fileID: 661937287}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,6 +356,8 @@ MonoBehaviour:
   movingLR: {x: 0, y: 0, z: 0}
   movingRight: 0
   movingLeft: 0
+  inputTimer: 0
+  shootDelay: 0
 --- !u!136 &661937282
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -528,6 +531,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &661937287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661937280}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1369086636
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,11 +558,11 @@ GameObject:
   - component: {fileID: 1369086640}
   - component: {fileID: 1369086639}
   - component: {fileID: 1369086638}
-  - component: {fileID: 1369086641}
   - component: {fileID: 1369086642}
+  - component: {fileID: 1369086643}
   m_Layer: 0
   m_Name: Ruben
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -606,14 +625,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369086636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08015537, y: 1.19, z: 5.15}
+  m_LocalPosition: {x: 0.06, y: 1.19, z: 5.15}
   m_LocalScale: {x: 6.3584948, y: 1.8636, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369086641
+--- !u!65 &1369086642
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369086636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1369086643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -625,21 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e54475dd9e5234aa6a7439979cc310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
---- !u!64 &1369086642
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369086636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  hp: 90
 --- !u!1 &1452042125
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: -0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.y

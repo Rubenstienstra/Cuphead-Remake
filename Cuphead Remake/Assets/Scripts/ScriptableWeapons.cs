@@ -7,5 +7,7 @@ public class ScriptableWeapons : ScriptableObject
 {
     public GameObject currentWeapon;
     public GameObject[] totalWeapons;
+
+    public float currentWeaponStats;
 }
 // cr == current

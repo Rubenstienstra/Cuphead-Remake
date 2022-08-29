@@ -17,10 +17,14 @@ public class Player : MonoBehaviour
     public bool movingRight;
     public bool movingLeft;
 
+    public float inputTimer;
+    public float shootDelay;
+
     // Start is called before the first frame update
     void Start()
     {
         crWeapon = totalWeapons.currentWeapon;
+        shootDelay = totalWeapons.currentWeaponStats;
     }
     public void OnMovingRight(InputValue value)
     {
@@ -29,11 +33,9 @@ public class Player : MonoBehaviour
         {
             movingRight = true;
             gameInfo.playerRight = true;
-        }
-        else
-        {
-            movingRight = false;
-            gameInfo.playerRight = false;
+
+            movingLeft = false;
+            gameInfo.playerLeft = false;
         }
     }
     public void OnMovingLeft(InputValue value)
@@ -44,25 +46,45 @@ public class Player : MonoBehaviour
         {
             movingLeft = true;
             gameInfo.playerLeft = true;
-        }
-        else
-        {
-            movingLeft = false;
-            gameInfo.playerLeft = false;
+
+            movingRight = false;
+            gameInfo.playerRight = false;
         }
     }
-    public void OnShooting(InputValue value)
-    {
-        SpawnProjectile();
-    }
+    //public void OnShooting(InputValue value)
+    //{
+    //    SpawnProjectile();
+    //}
     public void SpawnProjectile()
     {
         spawnLocation = this.gameObject.transform.position;
-        //crWeapon = GameObject.Instantiate(crWeapon as GameObject);
-        if(movingRight || movingLeft == false)
+        if(movingLeft == true)
         {
-
+            spawnLocation.z -= 0.5f;
+        }
+        else
+        {
+            spawnLocation.z += 0.5f;
         }
         Instantiate(crWeapon, spawnLocation, Quaternion.identity);
+    }
+    public void OnShooting(InputValue value)
+    {
+        inputTimer = value.Get<float>();
+        if(value.Get<float>() > 0.9)
+        {
+            StartCoroutine(AutoShooting());
+        }
+        else if (value.Get<float>() < 0.1)
+        {
+            //StopCoroutine(AutoShooting());
+        }
+    }
+    IEnumerator AutoShooting()
+    {
+       yield return new WaitForSeconds(shootDelay);
+       SpawnProjectile();
+       yield return new WaitForSeconds(0);
+        AutoShooting();
     }
 }
