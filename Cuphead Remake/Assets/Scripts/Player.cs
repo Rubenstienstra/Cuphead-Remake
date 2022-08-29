@@ -51,10 +51,28 @@ public class Player : MonoBehaviour
             gameInfo.playerRight = false;
         }
     }
-    //public void OnShooting(InputValue value)
-    //{
-    //    SpawnProjectile();
-    //}
+    public void OnJump(InputValue value)
+    {
+
+    }
+    public void OnShooting(InputValue value)
+    {
+        allowShoot = value.Get<float>();
+        if (value.Get<float>() >= 0.9)
+        {
+            StartCoroutine(AutoShooting());
+        }
+    }
+    IEnumerator AutoShooting()
+    {
+        yield return new WaitForSeconds(shootDelay);
+        if (allowShoot >= 0.9)
+        {
+            SpawnProjectile();
+            yield return new WaitForSeconds(0);
+            StartCoroutine(AutoShooting());
+        }
+    }
     public void SpawnProjectile()
     {
         spawnLocation = this.gameObject.transform.position;
@@ -68,26 +86,5 @@ public class Player : MonoBehaviour
         }
         Instantiate(crWeapon, spawnLocation, Quaternion.identity);
     }
-    public void OnShooting(InputValue value)
-    {
-        allowShoot = value.Get<float>();
-        if(value.Get<float>() >= 0.9)
-        {
-            StartCoroutine(AutoShooting());
-        }
-        //else if (value.Get<float>() < 0.1)
-        //{
-        //    StopCoroutine(AutoShooting());
-        //}
-    }
-    IEnumerator AutoShooting()
-    {
-       yield return new WaitForSeconds(shootDelay);
-        if(allowShoot >= 0.9)
-        {
-            SpawnProjectile();
-            yield return new WaitForSeconds(0);
-            StartCoroutine(AutoShooting());
-        }
-    }
+
 }

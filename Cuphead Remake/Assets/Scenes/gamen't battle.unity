@@ -356,7 +356,7 @@ MonoBehaviour:
   movingLR: {x: 0, y: 0, z: 0}
   movingRight: 0
   movingLeft: 0
-  inputTimer: 0
+  allowShoot: 0
   shootDelay: 0
 --- !u!136 &661937282
 CapsuleCollider:
@@ -767,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.51
+      value: 0.676
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalRotation.w
