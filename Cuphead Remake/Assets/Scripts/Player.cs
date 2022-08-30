@@ -11,25 +11,47 @@ public class Player : MonoBehaviour
     public int hp;
 
     public GameObject crWeapon;
-    public Vector3 spawnLocation;
+    public Vector3 spawnLocationWeapon;
 
     public Vector3 movingLR;
     public bool movingRight;
     public bool movingLeft;
+    public float moveSpeed;
 
-    public float allowShoot;
-    public float shootDelay;
+    public float jumpSpeed;
+    public bool enableJumpTime;
+    public bool isOnFloor;
 
-    // Start is called before the first frame update
+    private float allowShootCheck;
+
+    // Use Scriptable weapon to change shootDelay
+    private float shootDelay;
+
     void Start()
     {
         crWeapon = totalWeapons.currentWeapon;
         shootDelay = totalWeapons.currentWeaponStats;
     }
+    private void Update()
+    {
+        if(enableJumpTime == true)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * jumpSpeed);
+        }
+        if(movingLR.z == 1)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+        }
+        if(movingLR.x == 1)
+        {
+            transform.Translate(Vector3.back * Time.deltaTime * moveSpeed);
+        }
+        
+    }
     public void OnMovingRight(InputValue value)
     {
         movingLR.z = value.Get<float>();
-        if (movingLR.z > 0.9)
+        if (movingLR.z == 1)
         {
             movingRight = true;
             gameInfo.playerRight = true;
@@ -42,7 +64,7 @@ public class Player : MonoBehaviour
     {
         movingLR.x = value.Get<float>();
 
-        if (movingLR.x > 0.9)
+        if (movingLR.x == 1)
         {
             movingLeft = true;
             gameInfo.playerLeft = true;
@@ -51,14 +73,27 @@ public class Player : MonoBehaviour
             gameInfo.playerRight = false;
         }
     }
-    public void OnJump(InputValue value)
+    IEnumerator OnJump(InputValue value)
     {
-
+        if(isOnFloor == true)
+        {
+            enableJumpTime = true;
+            isOnFloor = false;
+            yield return new WaitForSeconds(0.5f);
+            enableJumpTime = false;
+        }
+    }
+    private void OnCollisionEnter(Collision col)
+    {
+        if(col.collider.gameObject.tag == "Ground")
+        {
+            isOnFloor = true;
+        }
     }
     public void OnShooting(InputValue value)
     {
-        allowShoot = value.Get<float>();
-        if (value.Get<float>() >= 0.9)
+        allowShootCheck = value.Get<float>();
+        if (value.Get<float>() == 1)
         {
             StartCoroutine(AutoShooting());
         }
@@ -66,7 +101,7 @@ public class Player : MonoBehaviour
     IEnumerator AutoShooting()
     {
         yield return new WaitForSeconds(shootDelay);
-        if (allowShoot >= 0.9)
+        if (allowShootCheck == 1)
         {
             SpawnProjectile();
             yield return new WaitForSeconds(0);
@@ -75,16 +110,17 @@ public class Player : MonoBehaviour
     }
     public void SpawnProjectile()
     {
-        spawnLocation = this.gameObject.transform.position;
+        spawnLocationWeapon = this.gameObject.transform.position;
         if(movingLeft == true)
         {
-            spawnLocation.z -= 0.5f;
+            spawnLocationWeapon.z -= 0.5f;
         }
         else
         {
-            spawnLocation.z += 0.5f;
+            spawnLocationWeapon.z += 0.5f;
         }
-        Instantiate(crWeapon, spawnLocation, Quaternion.identity);
+        Instantiate(crWeapon, spawnLocationWeapon, Quaternion.identity);
     }
+
 
 }
