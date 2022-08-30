@@ -8,17 +8,7 @@ public class BossBattle : MonoBehaviour
     public int currentHP;
     void Start()
     {
-        for (int i = 0; i < bossHPStages.Length;)
-        {
-            if (bossHPStages[i] <= 0)
-            {
-                i++;
-            }
-            else
-            {
-                currentHP = bossHPStages[i];
-            }
-        }
+        currentHP = bossHPStages[0];
     }
     private void OnTriggerEnter(Collider trig)
     {
@@ -26,20 +16,20 @@ public class BossBattle : MonoBehaviour
         {
             currentHP--;
             Destroy(trig.gameObject);
-            if(currentHP <= 0)
+            if(currentHP < 0)
             {
-                for (int i = 0; i < bossHPStages.Length;)
-                {
-                    if(bossHPStages[i] <= 0)
-                    {
-                        i++;
-                    }
-                    else
-                    {
-                        currentHP = bossHPStages[i];
-                    }
-                }
-                KnockOut();
+                //for (int i = 0; i < bossHPStages.Length;)
+                //{
+                //    if(bossHPStages[i] <= 0)
+                //    {
+                //        i++;
+                //    }
+                //    else
+                //    {
+                //        currentHP = bossHPStages[i];
+                //    }
+                //}
+                
             }
         }
     }

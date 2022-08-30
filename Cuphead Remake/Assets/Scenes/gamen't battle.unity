@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 576372476}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,12 +352,14 @@ MonoBehaviour:
   totalWeapons: {fileID: 11400000, guid: b076e91223a5e4e489e37657d8ef6f51, type: 2}
   hp: 3
   crWeapon: {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
-  spawnLocation: {x: 0, y: 0, z: 0}
+  spawnLocationWeapon: {x: 0, y: 0, z: 0}
   movingLR: {x: 0, y: 0, z: 0}
   movingRight: 0
   movingLeft: 0
-  allowShoot: 0
-  shootDelay: 0
+  moveSpeed: 6
+  jumpSpeed: 3
+  enableJumpTime: 0
+  isOnFloor: 0
 --- !u!136 &661937282
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -430,8 +432,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661937280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08015537, y: 1.55, z: 0.00093212724}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.08015537, y: 1.19, z: 0.00093212724}
+  m_LocalScale: {x: 1, y: 0.73727, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -545,7 +547,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1369086636
 GameObject:
@@ -657,7 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e54475dd9e5234aa6a7439979cc310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 90
+  bossHPStages: 
+  currentHP: 50
 --- !u!1 &1452042125
 GameObject:
   m_ObjectHideFlags: 0

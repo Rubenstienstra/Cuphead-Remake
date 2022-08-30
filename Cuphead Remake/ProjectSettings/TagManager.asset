@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Weapon Projectile
   - Boss
+  - Ground
   layers:
   - Default
   - TransparentFX
