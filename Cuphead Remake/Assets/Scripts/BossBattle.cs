@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossBattle : MonoBehaviour
 {
+    public GamentBattle gamentBattle;
+
     public int[] bossHPphase;
     public int currentHP;
     public int currentPhase;
@@ -38,7 +40,7 @@ public class BossBattle : MonoBehaviour
     }
     public void KnockOut()
     {
-        Destroy(this.gameObject);
+        gamentBattle.KnockDown();
     }
 
 }
