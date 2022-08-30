@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public ScriptableWeapons totalWeapons;
 
     public int hp;
+    public bool invincabilityMode;
 
     public GameObject crWeapon;
     public Vector3 spawnLocationWeapon;
@@ -89,6 +90,18 @@ public class Player : MonoBehaviour
         {
             isOnFloor = true;
         }
+        if(col.collider.gameObject.tag == "Enemy")
+        {
+            if(invincabilityMode == false)
+            {
+                hp--;
+                StartCoroutine(InvincabilityFrames());
+            }
+            if(hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
     public void OnShooting(InputValue value)
     {
@@ -120,6 +133,13 @@ public class Player : MonoBehaviour
             spawnLocationWeapon.z += 0.5f;
         }
         Instantiate(crWeapon, spawnLocationWeapon, Quaternion.identity);
+    }
+    IEnumerator InvincabilityFrames()
+    {
+        invincabilityMode = true;
+        yield return new WaitForSeconds(1);
+        invincabilityMode = false;
+
     }
 
 

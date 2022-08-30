@@ -20,9 +20,10 @@ public class BossBattle : MonoBehaviour
         {
             currentHP--;
             Destroy(trig.gameObject);
-            if(currentHP <= 0)
+            NextPhase();
+            if (currentHP <= 0)
             {
-                NextPhase();
+                
             }
         }
     }

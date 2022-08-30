@@ -151,8 +151,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.9470044, b: 0.8392157, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -210,12 +210,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54962784}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 1.02, y: 5.43, z: -1.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &576372475
 GameObject:
@@ -308,11 +308,11 @@ Transform:
   m_GameObject: {fileID: 576372475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 10, y: 1, z: 18.139532}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &661937280
 GameObject:
@@ -351,6 +351,7 @@ MonoBehaviour:
   gameInfo: {fileID: 11400000, guid: e206bec87e16d54478fcbed54ab49ab6, type: 2}
   totalWeapons: {fileID: 11400000, guid: b076e91223a5e4e489e37657d8ef6f51, type: 2}
   hp: 3
+  invincabilityMode: 0
   crWeapon: {fileID: 4480349941189641740, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
   spawnLocationWeapon: {x: 0, y: 0, z: 0}
   movingLR: {x: 0, y: 0, z: 0}
@@ -437,7 +438,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &661937286
 MonoBehaviour:
@@ -580,7 +581,7 @@ Transform:
   m_Children:
   - {fileID: 1369086640}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &718827303
 MonoBehaviour:
@@ -595,8 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamentBattle: {fileID: 1369086644}
-  bossHPphase: 0a00000014000000
-  currentHP: 10
+  bossHPphase: 6400000096000000
+  currentHP: 50
   currentPhase: 0
 --- !u!1 &1369086636
 GameObject:
@@ -709,6 +710,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossScript: {fileID: 718827303}
+  hospitalEnemySpawn: {x: 0.012, y: 0.88, z: -6.68}
+  hospitalWagon:
+  - {fileID: 955765460588510511, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+  - {fileID: 955765460588510511, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+  - {fileID: 955765460588510511, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+  randomNumber: 0
+  maxSpawnHospital: 0
 --- !u!1 &1452042125
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,13 +794,70 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452042125}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.82, y: 1, z: 2.27}
+  m_LocalPosition: {x: 5.82, y: 1, z: 0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1001 &285473608648032431
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434702039982237589, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955765460588510511, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
+      propertyPath: m_Name
+      value: CarAmbulance
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
 --- !u!1001 &4480349942224108995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -806,7 +871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.x
