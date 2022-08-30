@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BossBattle : MonoBehaviour
 {
-    public int[] bossHPStages;
+    public int[] bossHPphase;
     public int currentHP;
+    public int currentPhase;
+
     void Start()
     {
-        currentHP = bossHPStages[0];
+        
     }
     private void OnTriggerEnter(Collider trig)
     {
@@ -16,21 +18,22 @@ public class BossBattle : MonoBehaviour
         {
             currentHP--;
             Destroy(trig.gameObject);
-            if(currentHP < 0)
+            if(currentHP <= 0)
             {
-                //for (int i = 0; i < bossHPStages.Length;)
-                //{
-                //    if(bossHPStages[i] <= 0)
-                //    {
-                //        i++;
-                //    }
-                //    else
-                //    {
-                //        currentHP = bossHPStages[i];
-                //    }
-                //}
-                
+                NextPhase();
             }
+        }
+    }
+    public void NextPhase()
+    {
+        if(bossHPphase.Length > currentPhase)
+        {
+            currentHP = bossHPphase[currentPhase];
+           currentPhase++;
+        }
+        else
+        {
+            KnockOut();
         }
     }
     public void KnockOut()

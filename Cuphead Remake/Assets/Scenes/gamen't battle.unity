@@ -356,8 +356,8 @@ MonoBehaviour:
   movingLR: {x: 0, y: 0, z: 0}
   movingRight: 0
   movingLeft: 0
-  moveSpeed: 6
-  jumpSpeed: 3
+  moveSpeed: 3
+  jumpSpeed: 6
   enableJumpTime: 0
   isOnFloor: 0
 --- !u!136 &661937282
@@ -659,8 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e54475dd9e5234aa6a7439979cc310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHPStages: 
-  currentHP: 50
+  bossHPphase: 140000001e000000
+  currentHP: 10
+  currentPhase: 0
 --- !u!1 &1452042125
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.87
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 4480349941189641751, guid: 71511b0fdd4fcc6419788b8f7a37689c, type: 3}
       propertyPath: m_LocalPosition.z
