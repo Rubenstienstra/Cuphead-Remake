@@ -20,13 +20,13 @@ public class BossBattle : MonoBehaviour
         {
             currentHP--;
             Destroy(trig.gameObject);
-            NextPhase();
             if (currentHP <= 0)
             {
-                
+                NextPhase();
             }
         }
     }
+    //NextPhase doesn't work
     public void NextPhase()
     {
         if(bossHPphase.Length > currentPhase)
