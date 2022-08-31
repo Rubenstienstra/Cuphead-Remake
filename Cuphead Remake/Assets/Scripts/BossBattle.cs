@@ -12,7 +12,7 @@ public class BossBattle : MonoBehaviour
 
     void Start()
     {
-        
+        currentHP = bossHPphase[0];
     }
     private void OnTriggerEnter(Collider trig)
     {
@@ -30,8 +30,9 @@ public class BossBattle : MonoBehaviour
     {
         if(bossHPphase.Length > currentPhase)
         {
-           currentHP = bossHPphase[currentPhase];
-           currentPhase++;
+            currentPhase++;
+            currentHP = bossHPphase[currentPhase];
+           
         }
         else
         {

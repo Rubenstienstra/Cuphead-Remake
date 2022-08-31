@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
 
     public int hp;
     public bool invincabilityMode;
+    public Material invincabilityColor;
+    public Material invincabilityColorOff;
+    public Text hpText;
 
     public GameObject crWeapon;
     public Vector3 spawnLocationWeapon;
@@ -30,6 +34,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        hpText.text = hp.ToString();
         crWeapon = totalWeapons.currentWeapon;
         shootDelay = totalWeapons.currentWeaponStats;
     }
@@ -95,6 +100,9 @@ public class Player : MonoBehaviour
             if(invincabilityMode == false)
             {
                 hp--;
+                //materials veranderen niet
+                this.gameObject.GetComponent<MeshRenderer>().materials[0] = invincabilityColor;
+                hpText.text = hp.ToString();
                 StartCoroutine(InvincabilityFrames());
             }
             if(hp <= 0)
@@ -139,6 +147,7 @@ public class Player : MonoBehaviour
     {
         invincabilityMode = true;
         yield return new WaitForSeconds(1);
+        this.gameObject.GetComponent<MeshRenderer>().materials[0] = invincabilityColorOff;
         invincabilityMode = false;
 
     }
