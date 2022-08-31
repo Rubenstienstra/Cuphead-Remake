@@ -6,28 +6,54 @@ public class GamentBattle : MonoBehaviour
 {
     public BossBattle bossScript;
 
+    public int randomAttackGeneration;
+    public float waitTimeAttack;
+
     public Vector3 hospitalEnemySpawn;
     public GameObject[] hospitalWagon;
     public int randomNumber;
     public int maxSpawnHospital;
+    public int hospitalSpawned;
     
 
     void Start()
     {
-        StartCoroutine(Attack1());
+        StartCoroutine(ChoosingAttack());
+    }
+    public IEnumerator ChoosingAttack()
+    {
+        randomAttackGeneration = Random.Range(1, 3);
+        switch (randomAttackGeneration)
+        {
+            case 1:
+                StartCoroutine(Attack1());
+                waitTimeAttack = 20;
+                break;
+            case 2:
+                StartCoroutine(Attack1());
+                waitTimeAttack = 20;
+                break;
+            case 3:
+                StartCoroutine(Attack1());
+                waitTimeAttack = 20;
+                break;
+        }
+        yield return new WaitForSeconds(waitTimeAttack);
+        StartCoroutine(ChoosingAttack());
+        
     }
     public IEnumerator Attack1()
     {
         yield return new WaitForSeconds(1.8f);
         SpawnHospitalWagon();
-        maxSpawnHospital++;
-        if(maxSpawnHospital < 5)
+        hospitalSpawned++;
+        if(hospitalSpawned < maxSpawnHospital)
         {
             StartCoroutine(Attack1());
         }
         else
         {
-            maxSpawnHospital = 0;
+            hospitalSpawned = 0;
         }
         
     }
@@ -42,13 +68,20 @@ public class GamentBattle : MonoBehaviour
         {
             bossScript.currentHP--;
             Destroy(trig.gameObject);
+            if (bossScript.currentHP <= 0)
+            {
+               bossScript.NextPhase();
+            }
         }
-    }
-    private void OnCollisionEnter(Collision col)
-    {
-        if(col.collider.gameObject.name == "CarAmbulance")
+        if (trig.gameObject.name == "CarAmbulance(Clone)")
         {
-            bossScript.currentHP += 10;
+            bossScript.currentHP += 15;
+            Destroy(trig.gameObject);
+        }
+        if(trig.gameObject.name == "CarPolice(Clone)" || trig.gameObject.name == "")
+        {
+            bossScript.currentHP += 5;
+            Destroy(trig.gameObject);
         }
     }
     public void KnockDown()

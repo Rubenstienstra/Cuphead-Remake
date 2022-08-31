@@ -16,22 +16,21 @@ public class BossBattle : MonoBehaviour
     }
     private void OnTriggerEnter(Collider trig)
     {
-        if (trig.gameObject.tag == "Weapon Projectile")
-        {
-            currentHP--;
-            Destroy(trig.gameObject);
-            if (currentHP <= 0)
-            {
-                NextPhase();
-            }
-        }
+        //if (trig.gameObject.tag == "Weapon Projectile")
+        //{
+        //    currentHP--;
+        //    Destroy(trig.gameObject);
+        //    if (currentHP <= 0)
+        //    {
+        //        NextPhase();
+        //    }
+        //}
     }
-    //NextPhase doesn't work
     public void NextPhase()
     {
         if(bossHPphase.Length > currentPhase)
         {
-            currentHP = bossHPphase[currentPhase];
+           currentHP = bossHPphase[currentPhase];
            currentPhase++;
         }
         else

@@ -33,6 +33,13 @@ public class Projectile : MonoBehaviour
         }
         
     }
+    //private void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.collider.gameObject.tag == "Background")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     IEnumerator Lifespan()
     {

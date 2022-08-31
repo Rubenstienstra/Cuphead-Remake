@@ -132,6 +132,7 @@ public class Player : MonoBehaviour
         {
             spawnLocationWeapon.z += 0.5f;
         }
+        spawnLocationWeapon.y -= 0.1f;
         Instantiate(crWeapon, spawnLocationWeapon, Quaternion.identity);
     }
     IEnumerator InvincabilityFrames()

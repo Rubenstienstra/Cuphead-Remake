@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5523815504112852927}
   - component: {fileID: 1653225208057292653}
   - component: {fileID: 7535373190523319579}
+  - component: {fileID: 3203627000693237363}
   m_Layer: 0
   m_Name: CarAmbulance
   m_TagString: Enemy
@@ -132,8 +133,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36c432548be268448e4da2e8dda0ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
-  creatureSpeed: 5
+  hp: 15
+  creatureSpeed: 2.5
+  LeftLight: {fileID: 4114615382144031986}
+  RightLight: {fileID: 4363221814103230406}
+--- !u!65 &3203627000693237363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955765460588510511}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 343.2048, y: 117.228165, z: 129.49353}
+  m_Center: {x: 0, y: 347.51294, z: 27.337872}
 --- !u!1 &4114615382144031986
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +161,7 @@ GameObject:
   - component: {fileID: 5592886369477966036}
   - component: {fileID: 2364345929610902271}
   m_Layer: 0
-  m_Name: Point Light Red
+  m_Name: Point Light green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4114615382144031986}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -73, y: -18, z: -143}
+  m_LocalPosition: {x: -73, y: 0, z: -269}
   m_LocalScale: {x: 565.6137, y: 565.61383, z: 565.61383}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,9 +193,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 0.17978883, g: 1, b: 0, a: 1}
+  m_Intensity: 2
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -239,7 +255,7 @@ GameObject:
   - component: {fileID: 7431240711475639692}
   - component: {fileID: 2958338087623862209}
   m_Layer: 0
-  m_Name: Point Light Blue
+  m_Name: Point Light Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4363221814103230406}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 71, y: -18, z: -143}
+  m_LocalPosition: {x: 71, y: -0, z: -269}
   m_LocalScale: {x: 565.6137, y: 565.61383, z: 565.61383}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,9 +287,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.048508644, g: 0, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 1, g: 0.96657693, b: 0, a: 1}
+  m_Intensity: 2
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
