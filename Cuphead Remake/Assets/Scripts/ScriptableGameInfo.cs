@@ -7,4 +7,6 @@ public class ScriptableGameInfo : ScriptableObject
 {
     public bool playerLeft;
     public bool playerRight;
+
+    public float increaseCarSpeed;
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CreatureEnemy : MonoBehaviour
 {
+    public ScriptableGameInfo gameInfo;
+
     public int hp;
     public float creatureSpeed;
 
@@ -11,6 +13,7 @@ public class CreatureEnemy : MonoBehaviour
     public GameObject RightLight;
     void Start()
     {
+        creatureSpeed += gameInfo.increaseCarSpeed ;
         StartCoroutine(LightSwitch());
     }
     private void Update()

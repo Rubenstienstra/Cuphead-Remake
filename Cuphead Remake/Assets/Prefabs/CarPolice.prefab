@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7535373190523319579, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}
       propertyPath: creatureSpeed
-      value: 5.5
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47fdc0b68f058dd42a868074a8da2070, type: 3}

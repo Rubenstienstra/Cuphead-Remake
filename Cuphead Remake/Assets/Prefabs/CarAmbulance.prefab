@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36c432548be268448e4da2e8dda0ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 15
-  creatureSpeed: 2.5
+  gameInfo: {fileID: 11400000, guid: e206bec87e16d54478fcbed54ab49ab6, type: 2}
+  hp: 12
+  creatureSpeed: 1.5
   LeftLight: {fileID: 4114615382144031986}
   RightLight: {fileID: 4363221814103230406}
 --- !u!65 &3203627000693237363

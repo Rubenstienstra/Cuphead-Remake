@@ -5,9 +5,11 @@ using UnityEngine;
 public class GamentBattle : MonoBehaviour
 {
     public BossBattle bossScript;
+    public ScriptableGameInfo gameInfo;
 
-    public int randomAttackGeneration;
-    public float waitTimeAttack;
+    private int randomAttackGeneration;
+    private float waitTimeAttack;
+    public float waitTimeAttackDecrease;
 
     public Vector3 hospitalEnemySpawnL;
     public Vector3 hospitalEnemySpawnM;
@@ -22,6 +24,7 @@ public class GamentBattle : MonoBehaviour
 
     void Start()
     {
+        gameInfo.increaseCarSpeed = 0;
         StartCoroutine(ChoosingAttack());
     }
     public IEnumerator ChoosingAttack()
@@ -31,15 +34,15 @@ public class GamentBattle : MonoBehaviour
         {
             case 1:
                 StartCoroutine(Attack1());
-                waitTimeAttack = 20;
+                waitTimeAttack = 22 - waitTimeAttackDecrease;
                 break;
             case 2:
                 StartCoroutine(Attack1());
-                waitTimeAttack = 20;
+                waitTimeAttack = 22 - waitTimeAttackDecrease;
                 break;
             case 3:
                 StartCoroutine(Attack1());
-                waitTimeAttack = 20;
+                waitTimeAttack = 22 - waitTimeAttackDecrease;
                 break;
         }
         yield return new WaitForSeconds(waitTimeAttack);
@@ -53,7 +56,6 @@ public class GamentBattle : MonoBehaviour
         hospitalSpawned++;
         if(hospitalSpawned < maxSpawnHospital)
         {
-            
             StartCoroutine(Attack1());
         }
         else
@@ -80,14 +82,11 @@ public class GamentBattle : MonoBehaviour
         {
             bossScript.currentHP--;
             Destroy(trig.gameObject);
-            if (bossScript.currentHP <= 0)
-            {
-               bossScript.NextPhase();
-            }
+            CheckHP();
         }
         if (trig.gameObject.name == "CarAmbulance(Clone)")
         {
-            bossScript.currentHP += 15;
+            bossScript.currentHP += 12;
             if(bossScript.currentHP > bossScript.bossHPphase[bossScript.currentPhase])
             {
                 bossScript.currentHP = bossScript.bossHPphase[bossScript.currentPhase];
@@ -98,12 +97,50 @@ public class GamentBattle : MonoBehaviour
         {
             bossScript.currentHP -= 5;
             Destroy(trig.gameObject);
-
-            if (bossScript.currentHP <= 0)
-            {
-                bossScript.NextPhase();
-            }
+            CheckHP();
+            
         }
+    }
+    public void CheckHP()
+    {
+        if (bossScript.currentHP <= 0)
+        {
+            bossScript.NextPhase();
+        }
+
+        switch (gameInfo.increaseCarSpeed)
+        {
+            case 0:
+                if (bossScript.currentHP > bossScript.bossHPphase[bossScript.currentPhase] / 4)
+                {
+                    gameInfo.increaseCarSpeed++;
+                }
+                break;
+            case 1:
+                if (bossScript.currentHP > bossScript.bossHPphase[bossScript.currentPhase] / 4 * 2)
+                {
+                    gameInfo.increaseCarSpeed++;
+                }
+                else if (bossScript.currentHP < bossScript.bossHPphase[bossScript.currentPhase] / 4 * 2)
+                {
+                    gameInfo.increaseCarSpeed--;
+                }
+                break;
+            case 2:
+                if (bossScript.currentHP > bossScript.bossHPphase[bossScript.currentPhase] / 4 * 3)
+                {
+                    gameInfo.increaseCarSpeed++;
+                }
+                else if (bossScript.currentHP < bossScript.bossHPphase[bossScript.currentPhase] / 4 * 3)
+                {
+                    gameInfo.increaseCarSpeed--;
+                }
+                break;
+            
+
+            
+        }
+        
     }
     public void KnockDown()
     {
